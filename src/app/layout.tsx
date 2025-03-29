@@ -11,7 +11,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "E-Cell - Entrepreneurship Club",
-  description: "Empowering innovators and nurturing startups to transform ideas into impactful ventures.",
+  description: "Empowering innovators and entrepreneurs to transform ideas into impactful ventures.",
 };
 
 export default function RootLayout({
