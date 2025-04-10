@@ -1,17 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   typescript: {
-    // !! WARN !!
-    // Temporarily ignoring TypeScript errors to complete the build
-    // In a production environment, you should fix these errors
-    // !! WARN !!
+    // TEMPORARY: Ignoring TypeScript errors to complete the build 
+    // TODO: Fix all TypeScript errors and re-enable checking
     ignoreBuildErrors: true,
   },
   eslint: {
-    // !! WARN !!
-    // Temporarily ignoring ESLint errors during builds
-    // There are too many ESLint errors to fix in one go
-    // !! WARN !!
+    // TEMPORARY: Ignoring ESLint errors to complete the build
+    // TODO: Fix all ESLint errors and re-enable checking
     ignoreDuringBuilds: true,
   },
   images: {
