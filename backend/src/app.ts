@@ -18,19 +18,27 @@ import galleryRoutes from './routes/gallery.routes';
 const app = express();
 
 // Global middleware
-app.use(helmet());
+app.use(helmet({
+  crossOriginResourcePolicy: { policy: "cross-origin" }
+}));
 
-// CORS configuration
+// Set up CORS - simplified configuration
 app.use(cors({
-  origin: [
-    'https://ecell-puce.vercel.app',
-    'http://localhost:3000',
-    // Include any other frontend domains that need access
-  ],
-  credentials: true, // Allow cookies and authentication headers
+  origin: '*', // Allow all origins since we're not using credentials
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
 }));
+
+// Add pre-flight OPTIONS handling for all routes
+app.options('*', cors());
+
+// Additional CORS headers for all responses
+app.use((req: Request, res: Response, next: NextFunction) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+  next();
+});
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

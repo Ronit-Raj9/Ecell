@@ -16,8 +16,8 @@ const apiClient: AxiosInstance = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 15000, // 15 seconds (increased from 10)
-  withCredentials: true, // Important for CORS with credentials
+  timeout: 15000, // 15 seconds
+  withCredentials: false, // Disable credentials to avoid CORS issues
 });
 
 // Request interceptor - will be used to attach token to requests
