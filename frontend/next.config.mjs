@@ -26,6 +26,18 @@ const nextConfig = {
       },
     ],
   },
+  // Explicitly specify webpack config for resolving paths
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': require('path').resolve(__dirname, 'src'),
+    };
+    return config;
+  },
+  // Ensure Node.js polyfills are properly handled
+  experimental: {
+    esmExternals: 'loose'
+  }
 };
 
 export default nextConfig; 

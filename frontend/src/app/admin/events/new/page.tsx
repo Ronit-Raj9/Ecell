@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Event } from '@/types/event';
-import EventForm from '@/components/admin/EventForm';
+import { Event } from '../../../../types/event';
+import EventForm from '../../../../components/admin/EventForm';
 import { motion } from 'framer-motion';
 
 export default function CreateEventPage() {
