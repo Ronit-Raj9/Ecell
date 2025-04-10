@@ -16,8 +16,8 @@ const apiClient: AxiosInstance = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 10000, // 10 seconds
-  withCredentials: true,
+  timeout: 15000, // 15 seconds (increased from 10)
+  withCredentials: true, // Important for CORS with credentials
 });
 
 // Request interceptor - will be used to attach token to requests
@@ -58,7 +58,19 @@ apiClient.interceptors.response.use(
             window.location.href = '/login';
           }
         }
+      } else if (status === 403) {
+        console.error('Permission denied. You don\'t have access to this resource.');
+      } else if (status === 429) {
+        console.error('Too many requests. Please try again later.');
+      } else if (status >= 500) {
+        console.error('Server error. Please try again later.');
       }
+    } else if (error.request) {
+      // Request was made but no response received
+      console.error('Network error. Please check your connection and try again.', error.request);
+    } else {
+      // Something else happened while setting up the request
+      console.error('Request error:', error.message);
     }
     
     return Promise.reject(error);

@@ -28,12 +28,9 @@ const nextConfig = {
   },
   // Enable React strict mode for better development experience
   reactStrictMode: true,
-  // Ensure module resolution works correctly
-  webpack: (config) => {
-    // This helps with path resolution
-    config.resolve.fallback = { fs: false, path: false };
-    return config;
-  }
+  
+  // Server configuration options
+  serverExternalPackages: [],
 };
 
 export default nextConfig; 
