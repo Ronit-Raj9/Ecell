@@ -107,10 +107,17 @@ export default function AboutSection() {
               <div className="p-6 bg-black/80 backdrop-blur-lg rounded-xl">
                 <div className="aspect-video relative rounded-lg overflow-hidden shadow-2xl">
                   <Image
-                    src="/images/about.jpg"
-                    alt="Team working together"
-                    fill
-                    className="object-cover"
+                    src="/images/team/team.jpeg"
+                    alt="E-Cell Team"
+                    width={600}
+                    height={400}
+                    className="object-cover w-full h-full"
+                    priority
+                    // onError={(e) => {
+                    //   // Fallback if the image doesn't load
+                    //   const target = e.target as HTMLImageElement;
+                    //   target.src = "https://dummyimage.com/600x400/000/fff&text=E-Cell+Team";
+                    // }}
                   />
                 </div>
               </div>
