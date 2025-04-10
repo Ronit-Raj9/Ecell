@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Event } from '../../../../../types/event';
-import EventForm from '../../../../../components/admin/EventForm';
-import { events } from '../../../../../data/events';
+import { Event } from '@/types/event';
+import EventForm from '@/components/admin/EventForm';
+import { events } from '@/data/events';
 import { motion } from 'framer-motion';
 
 export default function EditEventPage() {

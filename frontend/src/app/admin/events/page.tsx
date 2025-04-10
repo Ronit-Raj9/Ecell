@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { events } from '../../../data/events';
-import EventsTable from '../../../components/admin/EventsTable';
-import { Event } from '../../../types/event';
-import { getUpcomingEvents } from '../../../utils/eventHelpers';
+import { events } from '@/data/events';
+import EventsTable from '@/components/admin/EventsTable';
+import { Event } from '@/types/event';
+import { getUpcomingEvents } from '@/utils/eventHelpers';
 import { motion } from 'framer-motion';
 
 export default function AdminEventsPage() {
